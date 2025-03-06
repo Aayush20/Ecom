@@ -2,6 +2,7 @@ package org.example.productservice.controllers;
 
 import org.example.productservice.dtos.CreateProductRequestDto;
 import org.example.productservice.dtos.CreateProductResponseDto;
+import org.example.productservice.exceptions.ErrorResponseDto;
 import org.example.productservice.models.Product;
 import org.example.productservice.services.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,6 +32,20 @@ public class ProductController {
     public CreateProductResponseDto createProduct(@RequestBody CreateProductRequestDto createProductRequestDto) {
         Product product = productService.createProduct(createProductRequestDto.toProduct());
         return CreateProductResponseDto.fromProduct(product);
+    }
+
+    //Controller's own Exception Handlers
+    @ExceptionHandler(Exception.class)
+    public String handleException(Exception e) {
+        return e.getMessage() + "Something went wrong!";
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ErrorResponseDto handleRuntimeException(RuntimeException e) {
+        ErrorResponseDto errorResponseDto = new ErrorResponseDto();
+        errorResponseDto.setMessage(e.getMessage());
+        errorResponseDto.setStatus("500");
+        return errorResponseDto;
     }
 
 }
