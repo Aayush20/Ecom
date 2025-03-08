@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-//@MappedSuperclass
+@MappedSuperclass
 public class BaseModel {
 
     @Id

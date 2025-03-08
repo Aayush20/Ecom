@@ -8,12 +8,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-//@Entity(name = "products")
+@Entity
 public class Product extends BaseModel{
 
+    //private String title;
     private String description;
-    private double price;
+    private Double price;
     private int quantity;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Category category;
+
 }
