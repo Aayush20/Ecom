@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,4 +48,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query(value = "select name, description from product where id = :id", nativeQuery = true)
     ProductNameAndDescription getProductTitleAndDescSQL(@Param("id") Long id);
+
+
+
+    List<Product> findByTitleContaining(String query);
+
+    Page<Product> findAllByTitleContainingAndCategory_Id(
+            String title, Long categoryId, Pageable pageable
+    );
 }

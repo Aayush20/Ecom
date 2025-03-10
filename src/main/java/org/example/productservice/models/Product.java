@@ -11,10 +11,10 @@ import lombok.Setter;
 @Entity
 public class Product extends BaseModel{
 
-    //private String title;
+    private String title;
     private String description;
     private Double price;
-    private int quantity;
+    private String imageUrl;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Category category;
 

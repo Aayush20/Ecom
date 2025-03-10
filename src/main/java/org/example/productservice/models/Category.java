@@ -15,6 +15,7 @@ public class Category extends BaseModel {
     //name = "category_name" to stay consistent with the db migration version.
     @Column(nullable = false, unique = true, name = "category_name")
     private String name;
+    @Basic(fetch = FetchType.LAZY)
     private String description;
     // mappedBy is used to specify the field in the Product class that maps the relationship to avoid duplicate mapping
     //Cascade is not recommended for better control of the operations

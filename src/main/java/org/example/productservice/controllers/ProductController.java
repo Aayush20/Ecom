@@ -1,13 +1,12 @@
 package org.example.productservice.controllers;
 
-import org.example.productservice.dtos.CreateProductRequestDto;
-import org.example.productservice.dtos.CreateProductResponseDto;
+import org.example.productservice.dtos.products.CreateProductRequestDto;
+import org.example.productservice.dtos.products.CreateProductResponseDto;
 import org.example.productservice.exceptions.ErrorResponseDto;
 import org.example.productservice.models.Product;
 import org.example.productservice.services.ProductService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

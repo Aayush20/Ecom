@@ -1,4 +1,4 @@
-package org.example.productservice.dtos;
+package org.example.productservice.dtos.products;
 
 import lombok.Data;
 import org.example.productservice.models.Product;
